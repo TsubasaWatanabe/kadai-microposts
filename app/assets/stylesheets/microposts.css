@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.btn-primary, .btn-danger {
+#like-btn, #unlike-btn, #delete-btn {
     font-size: 15px;
     height: 35px;
     width: 70px;
