@@ -31,18 +31,19 @@ class User < ApplicationRecord
     end
 
     def like(micropost)
-      unless liked?(micropost)
+      favorite = self.favorites.find_by(micropost_id: micropost.id)
+      unless favorite
         self.favorites.find_or_create_by(micropost_id: micropost.id)
       end
     end
   
     def unlike(micropost)
       favorite = self.favorites.find_by(micropost_id: micropost.id)
-      favorites.destroy if favorite
+      favorite.destroy if favorite
     end
 
     def liked?(micropost)
-      self.favorites.include?(micropost.id)
+      self.likes.include?(micropost)
     end
 
     def feed_microposts
