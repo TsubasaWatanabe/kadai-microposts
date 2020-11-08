@@ -20,8 +20,6 @@ class MicropostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
   
-  # => Cache-Control: no-cache
-
   private
 
   def micropost_params
